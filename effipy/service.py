@@ -10,7 +10,7 @@ class EffiPeople(base.Resource):
     def __init__(self, token, version='v1', test=False):
         self.token = token
         if test:
-            endpoint = "http://effipeople-api-staging.azurewebsites.net"
+            endpoint = "https://effipeople-api-staging.azurewebsites.net"
         else:
             endpoint = "https://api.effipeople.com"
         self.apiroot = '%s/%s' % (endpoint, version)
