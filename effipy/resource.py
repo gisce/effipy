@@ -14,7 +14,6 @@ class EffiPeopleResource(base.RESTResource):
     @base.apimethod
     def update(self, obj):
         self.require_item()
-        # EffiPeople uses PATCH for updates
-        request = http.Request('PATCH', self.get_url(), self.wrap_object(obj))
+        request = http.Request('PUT', self.get_url(), self.wrap_object(obj))
 
         return request, parsers.parse_json
