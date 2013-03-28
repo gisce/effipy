@@ -1,3 +1,6 @@
+import json
+
+from libsaas import http
 from libsaas.filters import auth
 from libsaas.services import base
 
@@ -14,7 +17,13 @@ class EffiPeople(base.Resource):
         else:
             endpoint = "https://api.effipeople.com"
         self.apiroot = '%s/%s' % (endpoint, version)
+        self.add_filter(self.use_json)
         self.add_filter(auth.BasicAuth(token, ''))
+
+    def use_json(self, request):
+        if request.method.upper() not in http.URLENCODE_METHODS:
+            request.headers['Content-Type'] = 'application/json'
+            request.params = json.dumps(request.params)
 
     def get_url(self):
         return self.apiroot
@@ -39,6 +48,6 @@ class EffiPeople(base.Resource):
     def usagepoints(self):
         return usagepoints.UsagePoints(self)
 
-    @base.Resource(efficiencyreports.EfficiencyReports)
+    @base.resource(efficiencyreports.EfficiencyReports)
     def efficiency_reports(self):
         return efficiencyreports.EfficiencyReports()
