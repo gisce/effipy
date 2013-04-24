@@ -49,6 +49,10 @@ class EffiPeople(base.Resource):
         return usagepoints.UsagePoints(self)
 
     @base.resource(measures.Measures)
+    def measure(self, measure_id):
+        return measures.Measures(self, measure_id)
+
+    @base.resource(measures.Measures)
     def measures(self):
         return measures.Measures(self)
 
