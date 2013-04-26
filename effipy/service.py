@@ -36,10 +36,6 @@ class EffiPeople(base.Resource):
     def customers(self):
         return customers.Customers(self)
 
-    @base.resource(meters.Meters)
-    def meter(self, meter_id):
-        return meters.Meters(self, meter_id)
-
     @base.resource(usagepoints.UsagePoints)
     def usagepoint(self, point_id):
         return usagepoints.UsagePoints(self, point_id)
