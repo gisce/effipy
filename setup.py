@@ -18,7 +18,7 @@ install_requires = [
 
 setup(
     name='effipy',
-    version='0.3.0',
+    version='0.4.0',
     author='GISCE-TI, S.L.',
     author_email='devel@gisce.net',
     url='http://code.gisce.net/effipy',
