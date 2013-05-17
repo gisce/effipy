@@ -5,13 +5,13 @@ from . import resource
 
 
 class Versions(resource.EffiPeopleResource):
-    """Permite gestionar las versions de los contratos.
+    """Permite gestionar las versions de las tarifas.
     """
     path = 'versions'
 
 
 class Tariffs(resource.EffiPeopleResource):
-    """Permite gestionar los contratos de los clientes de la compañía.
+    """Permite gestionar las tarifas de la compañía.
     """
     path = 'tariffs'
 
