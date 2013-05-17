@@ -4,7 +4,7 @@ from libsaas import http
 from libsaas.filters import auth
 from libsaas.services import base
 
-from . import customers, meters, usagepoints, efficiencyreports, measures
+from . import customers, usagepoints, efficiencyreports, measures, tariffs
 
 
 class EffiPeople(base.Resource):
@@ -54,4 +54,8 @@ class EffiPeople(base.Resource):
 
     @base.resource(efficiencyreports.EfficiencyReports)
     def efficiency_reports(self):
-        return efficiencyreports.EfficiencyReports()
+        return efficiencyreports.EfficiencyReports(self)
+
+    @base.resource(tariffs.Tariffs)
+    def tariffs(self):
+        return tariffs.Tariffs(self)
