@@ -57,5 +57,9 @@ class EffiPeople(base.Resource):
         return efficiencyreports.EfficiencyReports(self)
 
     @base.resource(tariffs.Tariffs)
+    def tariff(self, tariff_id):
+        return tariffs.Tariffs(self, tariff_id)
+
+    @base.resource(tariffs.Tariffs)
     def tariffs(self):
         return tariffs.Tariffs(self)
