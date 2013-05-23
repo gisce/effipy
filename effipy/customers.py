@@ -6,7 +6,10 @@ from . import contracts
 
 
 class Customers(resource.EffiPeopleResource):
-    """Permite gestionar los clientes de la compañía.
+    """
+    Customers management
+
+    Use ``object_id`` to get the endpoint to a escpecific customer.
     """
     path = 'customers'
 

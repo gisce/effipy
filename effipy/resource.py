@@ -6,6 +6,13 @@ class EffiPeopleResource(base.RESTResource):
 
     @base.apimethod
     def get(self, start=None, limit=None):
+        """
+        .. py:function:: get
+         `get()` method for all the EffiPeople resources.
+        
+        :param int start: Start of the results
+        :param int limit: Limit of the results
+        """
         params = base.get_params(('start', 'limit'), locals())
         request = http.Request('GET', self.get_url(), params)
 
