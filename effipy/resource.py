@@ -9,7 +9,7 @@ class EffiPeopleResource(base.RESTResource):
         """
         .. py:function:: get
          `get()` method for all the EffiPeople resources.
-        
+
         :param int start: Start of the results
         :param int limit: Limit of the results
         """
@@ -24,3 +24,15 @@ class EffiPeopleResource(base.RESTResource):
         request = http.Request('PUT', self.get_url(), self.wrap_object(obj))
 
         return request, parsers.parse_json
+
+    def get_url(self):
+        """
+        Get the URL for the endpoint.
+
+        In our case, we replace '/' for '-' for the object identifier.
+        """
+        if self.object_id is None:
+            return '{0}/{1}'.format(self.parent.get_url(), self.path)
+
+        return '{0}/{1}/{2}'.format(self.parent.get_url(), self.path,
+                                    self.object_id.replace('/', '-'))
