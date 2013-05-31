@@ -26,6 +26,11 @@ class EffiPeopleResource(base.RESTResource):
         return request, parsers.parse_json
 
     def get_url(self):
+        """
+        Get the URL for the endpoint.
+
+        In our case, we replace '/' for '-' for the object identifier.
+        """
         if self.object_id is None:
             return '{0}/{1}'.format(self.parent.get_url(), self.path)
 
